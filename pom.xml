@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fireflyingup</groupId>
+    <artifactId>glass</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>loader</module>
+        <module>core</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <loader.version>1.0.0</loader.version>
+        <core.version>1.0.0</core.version>
+        <final.name>glass-${version}</final.name>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>loader</id>
+            <modules>
+                <module>core</module>
+                <module>loader</module>
+            </modules>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+<!--            <properties>-->
+<!--                &lt;!&ndash;        配置将core.jar和inject.jar打包到loader/src/main/resources中        &ndash;&gt;-->
+<!--                <keeper.core.final.name>${project.name}</keeper.core.final.name>-->
+<!--                <keeper.inject.final.name>${project.name}</keeper.inject.final.name>-->
+<!--                <keeper.core.output.dir>${keeper.loader.resource.dir}</keeper.core.output.dir>-->
+<!--                <keeper.inject.output.dir>${keeper.loader.resource.dir}</keeper.inject.output.dir>-->
+<!--            </properties>-->
+        </profile>
+    </profiles>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
